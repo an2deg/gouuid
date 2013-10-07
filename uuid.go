@@ -202,5 +202,5 @@ func (u *UUID) UnmarshalJSON(data []byte) error {
 
 // Implementaition of GoStringer interface for displaying UUID in fmt package using %#v rune
 func (u *UUID) GoString() string {
-	return u.String()
+	return "UUID{\"" + u.String() + "\"}"
 }

@@ -6,9 +6,9 @@
 package uuid
 
 import (
-	"fmt"
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"regexp"
 	"testing"
 )
@@ -176,9 +176,9 @@ func TestUnmarshalJson(t *testing.T) {
 
 func TestGoStringerInterface(t *testing.T) {
 	in, _ := NewV4()
-	expected_output := "TEST UUID " + in.String()
+	expected_output := "TEST UUID{\"" + in.String() + "\"}"
 
-	res := fmt.Sprintf("TEST UUID %#v", in)
+	res := fmt.Sprintf("TEST %#v", in)
 	if res != expected_output {
 		t.Errorf("%s != %s", res, expected_output)
 	}
