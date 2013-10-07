@@ -6,6 +6,7 @@
 package uuid
 
 import (
+	"fmt"
 	"bytes"
 	"encoding/json"
 	"regexp"
@@ -170,5 +171,15 @@ func TestUnmarshalJson(t *testing.T) {
 
 	if res.Id.String() != expected_uuid {
 		t.Errorf("Expected parsed UUID to be the same as base, %s != %s", res.Id.String(), expected_uuid)
+	}
+}
+
+func TestGoStringerInterface(t *testing.T) {
+	in, _ := NewV4()
+	expected_output := "TEST UUID " + in.String()
+
+	res := fmt.Sprintf("TEST UUID %#v", in)
+	if res != expected_output {
+		t.Errorf("%s != %s", res, expected_output)
 	}
 }

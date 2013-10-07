@@ -199,3 +199,8 @@ func (u *UUID) UnmarshalJSON(data []byte) error {
 
 	return nil
 }
+
+// Implementaition of GoStringer interface for displaying UUID in fmt package using %#v rune
+func (u *UUID) GoString() string {
+	return u.String()
+}
